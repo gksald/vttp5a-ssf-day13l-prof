@@ -27,18 +27,20 @@ public class Person {
     private String id;
 
     @NotEmpty(message = "First Name is mandatory")
-    @Size(min = 5, max = 60, message = "First Name must be between 5 to 60 characters")
+    @Size(min = 1, max = 60, message = "First Name must be between 1 to 60 characters")
+    @Pattern(regexp = "^[A-Za-z\\s\\-']+$", message = "First Name must contain only alphabetical characters") // added feature by me
     private String firstName;
 
     @NotEmpty(message = "Last Name is mandatory")
-    @Size(min = 2, max = 60, message = "Last Name must be between 5 to 60 characters")
+    @Size(min = 2, max = 60, message = "Last Name must be between 2 to 60 characters")
+    @Pattern(regexp = "^[A-Za-z\\s\\-']+$", message = "Last Name must contain only alphabetical characters") // added feature by me
     private String lastName;
 
     @Min(value = 1500, message = "Minimum salary starts from 1500")
     @Max(value = 50000, message = "Maximum salary ceiling is 50000")
     private Integer salary;
 
-    @Email(message = "Email input doesn't not conform to email format")
+    @Email(message = "Email input doesn't conform to email format")
     @NotBlank(message = "Email is mandatory")
     private String email;
     
